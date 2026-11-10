@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "0925024c-3ceb-413f-81ac-3b8915a3cbb0",
-  "project_id": "c7438d7d-ce61-427b-a21e-d71a3c2d2aae",
-  "url": "/__l5e/assets-v1/0925024c-3ceb-413f-81ac-3b8915a3cbb0/editorial-21-600.webp",
-  "r2_key": "a/v1/c7438d7d-ce61-427b-a21e-d71a3c2d2aae/0925024c-3ceb-413f-81ac-3b8915a3cbb0/editorial-21-600.webp",
-  "original_filename": "editorial-21-600.webp",
-  "size": 35452,
   "content_type": "image/webp",
-  "created_at": "2026-11-10T14:14:50Z"
+  "created_at": "2026-11-10T14:14:50Z",
+  "original_filename": "editorial-21-600.webp",
+  "project_id": "32c76d22-704b-4461-9c69-3662449e4057",
+  "r2_key": "a/v1/32c76d22-704b-4461-9c69-3662449e4057/0925024c-3ceb-413f-81ac-3b8915a3cbb0/editorial-21-600.webp",
+  "size": 35452,
+  "url": "/__l5e/assets-v1/0925024c-3ceb-413f-81ac-3b8915a3cbb0/editorial-21-600.webp",
+  "version": 1
 }
