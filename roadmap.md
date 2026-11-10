@@ -1,5 +1,5 @@
 # SEO implementation
-- [ ] Remove only individual lightbox captions and equalize gallery column speeds; verify desktop/mobile movement and lightbox.
+- [x] Remove only individual lightbox captions and equalize gallery column speeds; verify desktop/mobile movement and lightbox.
 - [x] Repair photo delivery failures, add bounded first-image opening loader and verify gallery fallback on mobile.
 - [x] Audit current SEO, SSR, media, accessibility and mobile layout.
 - [x] Optimize metadata, structured data, crawlable links and HTML without changing the design.
