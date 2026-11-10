@@ -1,5 +1,5 @@
 # SEO implementation
-- [ ] Repair photo delivery failures, add bounded first-image opening loader and verify gallery fallback on mobile.
+- [x] Repair photo delivery failures, add bounded first-image opening loader and verify gallery fallback on mobile.
 - [x] Audit current SEO, SSR, media, accessibility and mobile layout.
 - [x] Optimize metadata, structured data, crawlable links and HTML without changing the design.
 - [x] Configure official favicon and mobile icons.
