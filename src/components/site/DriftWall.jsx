@@ -9,10 +9,8 @@ const DEFAULT_ITEMS = [];
 const prefersReducedMotion = () =>
   typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-const columnFactor = (index, variance) => {
-  const pseudo = ((index * 0.6180339887 + 0.35) % 1) * 2 - 1;
-  return 1 + variance * pseudo;
-};
+export const columnVelocity = (index, speed, direction) =>
+  speed * (direction === 'up' ? 1 : -1) * (index % 2 === 0 ? 1 : -1);
 
 const DriftWall = ({
   items = DEFAULT_ITEMS,
@@ -29,7 +27,6 @@ const DriftWall = ({
   depth = 120,
   speed = 12,
   direction = 'up',
-  variance = 0.45,
   parallax = 0.6,
   pauseOnHover = false,
   lift = 64,
@@ -130,12 +127,8 @@ const DriftWall = ({
   }, []);
 
   const baseVelocities = useMemo(() => {
-    const dirSign = direction === 'up' ? 1 : -1;
-    return columnItems.map((_, c) => {
-      const altSign = c % 2 === 0 ? 1 : -1;
-      return speed * columnFactor(c, variance) * dirSign * altSign;
-    });
-  }, [columnItems, speed, direction, variance]);
+    return columnItems.map((_, c) => columnVelocity(c, speed, direction));
+  }, [columnItems, speed, direction]);
 
   useEffect(() => {
     offsetsRef.current = columnMeta.map((meta, c) => meta.copyHeight * ((c * 0.37) % 1));
@@ -397,16 +390,11 @@ const DriftWall = ({
               alt={lightboxItem.title || 'Fotografia Galeria Her Concept'}
               className="max-w-[92vw] max-h-[80vh] sm:max-h-[85vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-[#C9A96E]/30 bg-black/50"
             />
-            {lightboxItem.title && (
-              <div className="mt-3 text-center px-4">
+            <div className="mt-3 text-center px-4">
                 <span className="text-[#C9A96E] text-[10px] sm:text-xs tracking-[0.3em] uppercase font-semibold block mb-0.5">
                   HER CONCEPT / PRODUÇÃO
                 </span>
-                <p className="text-white/90 text-xs sm:text-sm font-light tracking-wide">
-                  {lightboxItem.title}
-                </p>
-              </div>
-            )}
+            </div>
           </div>
         </div>,
         document.body
