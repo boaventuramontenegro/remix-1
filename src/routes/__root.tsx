@@ -126,7 +126,7 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <noscript><style>{".scroll-reveal{opacity:1!important;transform:none!important}"}</style></noscript>
+        <noscript><style>{".scroll-reveal{opacity:1!important;transform:none!important}.opening-loader{display:none!important}"}</style></noscript>
         {children}
         <Scripts />
       </body>
