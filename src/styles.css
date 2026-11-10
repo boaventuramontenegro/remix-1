@@ -110,12 +110,16 @@
   --sidebar-ring: oklch(0.704 0.04 256.788);
 }
 
-.opening-loader { position: fixed; inset: 0; z-index: 10000; background: var(--opening-background); color: var(--opening-gold); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 24px; }
-.opening-loader-brand { font-family: 'Cinzel', serif; font-size: 24px; }
-.opening-loader-label { font-family: 'Montserrat', sans-serif; font-size: 12px; }
-.opening-loader-line { width: 120px; height: 2px; background: var(--opening-gold); animation: opening-pulse 1s ease-in-out infinite alternate; }
-@keyframes opening-pulse { from { opacity: .3; transform: scaleX(.4); } to { opacity: 1; transform: scaleX(1); } }
-@media (prefers-reduced-motion: reduce) { .opening-loader-line { animation: none; } }
+.opening-loader { position: fixed; inset: 0; z-index: 10000; background: var(--opening-background); color: var(--opening-gold); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 14px; opacity: 1; transition: opacity .8s ease, visibility .8s ease; }
+.opening-loader.is-leaving { opacity: 0; visibility: hidden; }
+.opening-loader-brand { font-family: 'Cinzel', serif; font-size: clamp(26px, 6vw, 40px); letter-spacing: .25em; animation: opening-rise 1s ease-out both; }
+.opening-loader-sub { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: .6em; opacity: .75; animation: opening-rise 1s .2s ease-out both; }
+.opening-loader-track { margin-top: 18px; width: 160px; height: 1px; background: color-mix(in oklch, var(--opening-gold) 25%, transparent); overflow: hidden; }
+.opening-loader-fill { display: block; height: 100%; background: var(--opening-gold); transform-origin: left; animation: opening-fill 2s ease-in-out forwards; }
+.opening-loader-label { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: .3em; text-transform: uppercase; opacity: .6; }
+@keyframes opening-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes opening-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { .opening-loader-brand, .opening-loader-sub, .opening-loader-fill { animation: none; } }
 
 .dark {
   --background: oklch(0.129 0.042 264.695);
